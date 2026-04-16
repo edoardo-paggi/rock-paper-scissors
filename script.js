@@ -11,14 +11,15 @@ function getHumanChoice() { // string
 }
 
 function playRound(humanChoice, computerChoice) {
-    let human = humanChoice.toLowerCase();
+    let humanString = humanChoice.toLowerCase();
+    let human = 0;
     let result = "DRAW";
 
-    if (human === "rock" || human === "r") {
+    if (humanString === "rock" || humanString === "r") {
         human = 0;
-    } else if (human === "paper" || human === "p") {
+    } else if (humanString === "paper" || humanString === "p") {
         human = 1;
-    } else if (human === "scissors" || human === "s") {
+    } else if (humanString === "scissors" || humanString === "s") {
         human = 2;
     } else {
         console.log("ERROR! Input string is not valid. Please, enter 'rock', 'paper', 'scissors' or others variations");
@@ -61,9 +62,19 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+
+    if (humanScore > computerScore) {
+        console.log("Final winner: YOU!!!!");
+    } else if (computerScore > humanScore) {
+        console.log("Final winner: computer. Try again!");
+    } else {
+        console.log("Final result: DRAW!");
+    }
 }
+
+playGame();
