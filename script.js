@@ -10,3 +10,35 @@ function getHumanChoice() { // string
     return prompt("Choose rock, paper or scissors: ");
 }
 
+function playRound(humanChoice, computerChoice) {
+    let human = humanChoice.toLowerCase();
+
+    if (human === "rock" || human === "r") {
+        human = 0;
+    } else if (human === "paper" || human === "p") {
+        human = 1;
+    } else if (human === "scissors" || human === "s") {
+        human = 2;
+    } else {
+        console.log("ERROR! Input string is not valid. Please, enter 'rock', 'paper', 'scissors' or others variations");
+
+        return;
+    }
+
+    // rock = 0, paper = 1, scissors = 2
+    if (human === 0 && computerChoice === 2) {
+        console.log("You WIN! Rock beats Scissors");
+    } else if (human === 1 && computerChoice === 0) {
+        console.log("You WIN! Paper beats Rock");
+    } else if (human === 2 && computerChoice === 1) {
+        console.log("You WIN! Scissors beats Paper");
+    } else if (human === 0 && computerChoice === 1) {
+        console.log("You LOSE! Paper beats Rock");
+    } else if (human === 1 && computerChoice === 2) {
+        console.log("You LOSE! Scissors beats Paper");
+    } else if (human === 2 && computerChoice === 0) {
+        console.log("You LOSE! Rock beats Scissors");
+    } else {
+        console.log("DRAW!");
+    }
+}
