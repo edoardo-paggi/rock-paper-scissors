@@ -55,4 +55,15 @@ function playRound(humanChoice, computerChoice) {
     } else if (result === "LOSE") {
         computerScore++;
     }
+
+    console.log("You: " + humanScore);
+    console.log("Computer: " + computerScore);
+}
+
+function playGame() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
 }
